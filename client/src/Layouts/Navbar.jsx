@@ -184,35 +184,35 @@ const Navbar = () => {
 
           <div className="md:hidden bg-white border-t">
 
-            <Link to="/" className="block px-4 py-3 hover:bg-gray-100">
+            <Link to="/" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 hover:bg-gray-100">
               Home
             </Link>
 
             {role === "admin" ? (
               <>
-                <Link to="/recentbooking" className="block px-4 py-3 hover:bg-gray-100">
+                <Link to="/recentbooking" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 hover:bg-gray-100">
                   Recent Booking
                 </Link>
 
-                <Link to="/allbus" className="block px-4 py-3 hover:bg-gray-100">
+                <Link to="/allbus" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 hover:bg-gray-100">
                   All Bus
                 </Link>
               </>
             ) : (
               <>
-                <Link to="/searchbus" className="block px-4 py-3 hover:bg-gray-100">
+                <Link to="/searchbus" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 hover:bg-gray-100">
                   Search Bus
                 </Link>
 
-                <Link to="/recentbooking" className="block px-4 py-3 hover:bg-gray-100">
+                <Link to="/recentbooking" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 hover:bg-gray-100">
                   Recent Booking
                 </Link>
 
-                <Link to="/about" className="block px-4 py-3 hover:bg-gray-100">
+                <Link to="/about" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 hover:bg-gray-100">
                   About Us
                 </Link>
 
-                <Link to="/contact" className="block px-4 py-3 hover:bg-gray-100">
+                <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 hover:bg-gray-100">
                   Contact Us
                 </Link>
               </>
@@ -229,11 +229,11 @@ const Navbar = () => {
                 </button>
               ) : (
                 <>
-                  <Link to="/login" className="block px-4 py-3 hover:bg-gray-100">
+                  <Link to="/login" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 hover:bg-gray-100">
                     Customer Login
                   </Link>
 
-                  <Link to="/travelslogin" className="block px-4 py-3 hover:bg-gray-100">
+                  <Link to="/travelslogin" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 hover:bg-gray-100">
                     Travels Login
                   </Link>
                 </>
