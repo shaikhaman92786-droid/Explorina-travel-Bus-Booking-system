@@ -221,16 +221,28 @@ const Navbar = () => {
             <div className="border-t mt-2">
 
               {token ? (
+                <>
                 <button
-              onClick={() => {
-                handleEditProfile();
-                setIsMenuOpen(false);
-              }}
-              className="flex w-full items-center gap-3 px-4 py-3 text-green-600 hover:bg-green-50"
-            >
-              <User size={18} />
-              <span>Edit Profile</span>
-            </button>
+                  onClick={() => {
+                    handleEditProfile();
+                    setIsMenuOpen(false);
+                  }}
+                  className="flex w-full items-center gap-3 px-4 py-3 text-green-600 hover:bg-green-50"
+                >
+                  <User size={18} />
+                  <span>Edit Profile</span>
+                </button>
+                <button
+                  onClick={() => {
+                    handleLogout();
+                    setIsMenuOpen(false);
+                  }}
+                  className="flex w-full items-center gap-3 px-4 py-3 text-red-600 hover:bg-red-50"
+                >
+                  <LogOut size={18} />
+                  <span>Logout</span>
+                </button>
+                </>
               ) : (
                 <>
                   <Link to="/login" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 hover:bg-gray-100">
