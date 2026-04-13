@@ -250,12 +250,12 @@ const Navbar = () => {
               ) : (
                 <>
                   <Link to="/login" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 hover:bg-gray-100">
-                    <User2 className="w-5 h-5" />
+                    <User2 size={18} />
                     Customer Login
                   </Link>
 
                   <Link to="/travelslogin" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 hover:bg-gray-100">
-                    <Bus className="w-5 h-5" />
+                    <Bus size={18} />
                     Travels Login
                   </Link>
                 </>
