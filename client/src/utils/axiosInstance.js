@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const instance = axios.create({
-    baseURL: `${import.meta.env.REACT_API_BACKEND_BASEURL}`
+    baseURL: `${import.meta.env.VITE_REACT_API_BACKEND_BASEURL}`
 })
 
 instance.interceptors.request.use((config) => {
