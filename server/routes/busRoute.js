@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const upload = require("../middleware/upload");
 
 const { verifyToken } = require("../middleware/authMiddleware");
 const { isAdmin } = require("../middleware/roleMiddleware");
@@ -11,17 +12,6 @@ const {
   getBusById,
   updateBus 
 } = require('../controllers/busController');
-
-const multer = require("multer");
-
-// multer config (same as before)
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, "uploads/"),
-  filename: (req, file, cb) =>
-    cb(null, Date.now() + "-" + file.originalname)
-});
-
-const upload = multer({ storage });
 
 // Routes
 router.get("/allbus", verifyToken, getAllBuses);

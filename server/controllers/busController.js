@@ -51,9 +51,7 @@ exports.addBus = async (req, res) => {
   try {
     const newBus = new Bus({
       BusName: req.body.BusName,
-      BusImage: req.file
-        ? `http://localhost:5000/uploads/${req.file.filename}`
-        : "",
+      BusImage: req.file ? req.file.path : "",
       DepartureCity: req.body.DepartureCity,
       ArrivalCity: req.body.ArrivalCity,
       DateOfTravel: new Date(req.body.DateOfTravel),
