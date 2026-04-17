@@ -93,7 +93,7 @@ exports.updateBus = async (req, res) => {
 
     // ✅ If new image uploaded
     if (req.file) {
-      updatedData.BusImage = `http://localhost:5000/uploads/${req.file.filename}`;
+      updatedData.BusImage = req.file.path;
     }
 
     const updatedBus = await Bus.findByIdAndUpdate(
