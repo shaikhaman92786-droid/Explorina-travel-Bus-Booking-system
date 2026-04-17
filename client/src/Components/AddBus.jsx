@@ -97,131 +97,150 @@ const Addbus = () => {
 
 
   return (
-    <>
+  <>
     <ToastContainer position="top-right" autoClose={3000} />
-    <div className="min-h-screen bg-slate-200 flex items-center justify-center p-4">
+
+    <div className="min-h-screen bg-slate-200 flex items-center justify-center p-2 sm:p-4">
       <div className="w-full max-w-5xl mx-auto">
         <div className="bg-white rounded-2xl shadow-2xl flex flex-col md:flex-row">
 
           {/* Left side: Illustration */}
-          <div className="md:w-1/3 w-full p-8 flex flex-col justify-center items-center bg-blue-600 rounded-t-2xl md:rounded-l-2xl md:rounded-tr-none">
+          <div className="md:w-1/3 w-full p-5 md:p-8 flex flex-col justify-center items-center bg-blue-600 rounded-t-2xl md:rounded-l-2xl md:rounded-tr-none">
             <img
               src={Bus}
               alt="Add Bus Illustration"
-              className="w-48 h-48 object-cover rounded-full shadow-lg mb-6"
+              className="w-28 h-28 md:w-48 md:h-48 object-cover rounded-full shadow-lg mb-4 md:mb-6"
             />
-            <h2 className="text-white text-3xl font-bold text-center">Add New Bus</h2>
-            <p className="text-blue-200 mt-2 text-center">Fill in the details to add a new bus to the fleet.</p>
+            <h2 className="text-white text-xl md:text-3xl font-bold text-center">
+              Add New Bus
+            </h2>
+            <p className="text-blue-200 mt-1 md:mt-2 text-center text-sm md:text-base">
+              Fill in the details to add a new bus to the fleet.
+            </p>
           </div>
 
           {/* Right side: Form */}
-          <div className="md:w-2/3 w-full p-8 md:p-12">
-            <h1 className="text-3xl font-bold text-gray-800 mb-6">Bus Details</h1>
+          <div className="md:w-2/3 w-full p-4 sm:p-6 md:p-12">
+            <h1 className="text-xl md:text-3xl font-bold text-gray-800 mb-4 md:mb-6">
+              Bus Details
+            </h1>
+
             <form onSubmit={handleSubmit} encType="multipart/form-data" noValidate>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6">
+
+              {/* 👇 FIXED GRID */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-x-6">
 
                 {/* Bus Name */}
-                <div className="mb-4 col-span-2">
-                  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="BusName">Bus Name / Operator</label>
+                <div className="col-span-1 sm:col-span-2">
+                  <label className="block text-gray-700 text-sm font-bold mb-1 md:mb-2">
+                    Bus Name / Operator
+                  </label>
                   <input
                     type="text"
                     id="BusName"
                     value={formData.BusName}
                     onChange={handleChange}
-                    className="shadow-md border rounded-lg w-full py-3 px-4 pl-10 text-gray-700 focus:outline-blue-600"
+                    className="shadow-md border rounded-lg w-full py-2 md:py-3 px-3 md:px-4 text-sm md:text-base text-gray-700 focus:outline-blue-600"
                     placeholder="e.g., Volvo Sleeper"
                     required
                   />
                 </div>
 
-                {/* Departure & Arrival City */}
-                <div className="mb-4">
-                  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="DepartureCity">From</label>
+                {/* Cities */}
+                <div>
+                  <label className="block text-gray-700 text-sm font-bold mb-1 md:mb-2">From</label>
                   <select
                     id="DepartureCity"
                     value={formData.DepartureCity}
                     onChange={handleChange}
-                    className="shadow-md border rounded-lg w-full py-3 px-4 pl-10 text-gray-700 focus:outline-blue-600"
-                    required>
+                    className="shadow-md border rounded-lg w-full py-2 md:py-3 px-3 md:px-4 text-sm md:text-base text-gray-700 focus:outline-blue-600"
+                    required
+                  >
                     <option value="">Select Departure City</option>
-                    {topCitiesIndia.map(city => <option key={city} value={city}>{city}</option>)}
+                    {topCitiesIndia.map(city => <option key={city}>{city}</option>)}
                   </select>
                 </div>
-                <div className="mb-4">
-                  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="ArrivalCity">To</label>
+
+                <div>
+                  <label className="block text-gray-700 text-sm font-bold mb-1 md:mb-2">To</label>
                   <select
                     id="ArrivalCity"
                     value={formData.ArrivalCity}
                     onChange={handleChange}
-                    className="shadow-md border rounded-lg w-full py-3 px-4 pl-10 text-gray-700 focus:outline-blue-600"
-                    required>
+                    className="shadow-md border rounded-lg w-full py-2 md:py-3 px-3 md:px-4 text-sm md:text-base text-gray-700 focus:outline-blue-600"
+                    required
+                  >
                     <option value="">Select Arrival City</option>
-                    {topCitiesIndia.map(city => <option key={city} value={city}>{city}</option>)}
+                    {topCitiesIndia.map(city => <option key={city}>{city}</option>)}
                   </select>
                 </div>
 
                 {/* Dates */}
-                <div className="mb-4">
-                  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="DateOfTravel">Departure Date</label>
+                <div>
+                  <label className="block text-gray-700 text-sm font-bold mb-1 md:mb-2">Departure Date</label>
                   <input
                     type="date"
                     id="DateOfTravel"
                     value={formData.DateOfTravel}
                     onChange={handleChange}
-                    className="shadow-md border rounded-lg w-full py-3 px-4 pl-10 text-gray-700 focus:outline-blue-600"
+                    className="shadow-md border rounded-lg w-full py-2 md:py-3 px-3 md:px-4 text-sm md:text-base text-gray-700 focus:outline-blue-600"
                     required
                   />
                 </div>
-                <div className="mb-4">
-                  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="DateOfArrival">Arrival Date</label>
+
+                <div>
+                  <label className="block text-gray-700 text-sm font-bold mb-1 md:mb-2">Arrival Date</label>
                   <input
                     type="date"
                     id="DateOfArrival"
                     value={formData.DateOfArrival}
                     onChange={handleChange}
-                    className="shadow-md border  rounded-lg w-full py-3 px-4 pl-10 text-gray-700 focus:outline-blue-600"
+                    className="shadow-md border rounded-lg w-full py-2 md:py-3 px-3 md:px-4 text-sm md:text-base text-gray-700 focus:outline-blue-600"
                     required
                   />
                 </div>
 
                 {/* Times */}
-                <div className="mb-4">
-                  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="DepartureTime">Departure Time</label>
+                <div>
+                  <label className="block text-gray-700 text-sm font-bold mb-1 md:mb-2">Departure Time</label>
                   <input
                     type="time"
                     id="DepartureTime"
                     value={formData.DepartureTime}
-                    onChange={handleChange} className="shadow-md border rounded-lg w-full py-3 px-4 pl-10 text-gray-700 focus:outline-blue-600"
+                    onChange={handleChange}
+                    className="shadow-md border rounded-lg w-full py-2 md:py-3 px-3 md:px-4 text-sm md:text-base text-gray-700 focus:outline-blue-600"
                     required
                   />
                 </div>
-                <div className="mb-4">
-                  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="ArrivalTime">Arrival Time</label>
+
+                <div>
+                  <label className="block text-gray-700 text-sm font-bold mb-1 md:mb-2">Arrival Time</label>
                   <input
                     type="time"
                     id="ArrivalTime"
                     value={formData.ArrivalTime}
                     onChange={handleChange}
-                    className="shadow-md border rounded-lg w-full py-3 px-4 pl-10 text-gray-700 focus:outline-blue-600"
+                    className="shadow-md border rounded-lg w-full py-2 md:py-3 px-3 md:px-4 text-sm md:text-base text-gray-700 focus:outline-blue-600"
                     required
                   />
                 </div>
 
-                {/* Fare & Bus Image */}
-                <div className="mb-4">
-                  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Fare">Fare (₹)</label>
+                {/* Fare & Image */}
+                <div>
+                  <label className="block text-gray-700 text-sm font-bold mb-1 md:mb-2">Fare (₹)</label>
                   <input
                     type="number"
                     id="Fare"
                     value={formData.Fare}
                     onChange={handleChange}
-                    className="shadow-md border rounded-lg w-full py-3 px-4 pl-10 text-gray-700 focus:outline-blue-600"
-                    placeholder="e.g., 800"
+                    placeholder="e.g.,800"
+                    className="shadow-md border rounded-lg w-full py-2 md:py-3 px-3 md:px-4 text-sm md:text-base text-gray-700 focus:outline-blue-600"
                     required
                   />
                 </div>
-                <div className="mb-4">
-                  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="BusImage">Bus Image</label>
+
+                <div>
+                  <label className="block text-gray-700 text-sm font-bold mb-1 md:mb-2">Bus Image</label>
                   <input
                     type="file"
                     id="BusImage"
@@ -232,42 +251,49 @@ const Addbus = () => {
                 </div>
 
                 {/* Rows & Columns */}
-                <div className="mb-4">
-                  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="NumRows">Number of Rows</label>
+                <div>
+                  <label className="block text-gray-700 text-sm font-bold mb-1 md:mb-2">Number of Rows</label>
                   <input
                     type="number"
-                    id="NumRows" value={formData.NumRows}
+                    id="NumRows"
+                    value={formData.NumRows}
                     onChange={handleChange}
-                    className="shadow-md border rounded-lg w-full py-3 px-4 pl-10 text-gray-700 focus:outline-blue-600"
-                    placeholder="e.g., 10"
+                    placeholder="e.g.,10"
+                    className="shadow-md border rounded-lg w-full py-2 md:py-3 px-3 md:px-4 text-sm md:text-base text-gray-700 focus:outline-blue-600"
                     required
                   />
                 </div>
-                <div className="mb-6">
-                  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="NumColumns">Number of Columns</label>
+
+                <div>
+                  <label className="block text-gray-700 text-sm font-bold mb-1 md:mb-2">Number of Columns</label>
                   <input
                     type="number"
                     id="NumColumns"
                     value={formData.NumColumns}
                     onChange={handleChange}
-                    className="shadow-md border rounded-lg w-full py-3 px-4 pl-10 text-gray-700 focus:outline-blue-600"
-                    placeholder="e.g., 4"
+                    placeholder="e.g.,4"
+                    className="shadow-md border rounded-lg w-full py-2 md:py-3 px-3 md:px-4 text-sm md:text-base text-gray-700 focus:outline-blue-600"
                     required
                   />
                 </div>
+
               </div>
 
-              {/* Submit Button */}
-              <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline transition-all duration-300 transform hover:scale-105">
+              {/* Button */}
+              <button
+                type="submit"
+                className="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 md:py-3 px-4 rounded-lg transition-all duration-300"
+              >
                 Add Bus
               </button>
+
             </form>
           </div>
         </div>
       </div>
     </div>
-    </>
-  );
+  </>
+);
 };
 
 export default Addbus;

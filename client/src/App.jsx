@@ -18,6 +18,8 @@ import UpdateBus from './Components/UpdateBus'
 import AllBuses from './Components/AllBus'
 import EditProfile from './Components/EditProfile'
 import ForgotPassword from './Components/ForgotPassword'
+import NotFound from "./Components/NotFound";
+
 
 function App() {
 
@@ -113,6 +115,9 @@ function App() {
               </AdminRoute>
             </ProtectedRoute>
           } />
+
+          {/* NotFound Page */}
+          <Route path="*" element={<NotFound />} />
 
         </Routes>
 
